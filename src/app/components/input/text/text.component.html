@@ -1,1 +1,15 @@
-<p>text works!</p>
+<label [class]="cssLabelClass" [for]="id">
+  {{ labelText }}
+</label>
+<input
+  [name]="name"
+  [class]="cssInputClass"
+  [ngClass]="{ 'border border-red-500': error === true }"
+  [id]="id"
+  [type]="type"
+  [placeholder]="placeHolder"
+  (change)="inputTextValue($event)"
+/>
+<p *ngIf="error" class="text-sm text-red-500 font-medium">
+  {{ errorMessage }}
+</p>

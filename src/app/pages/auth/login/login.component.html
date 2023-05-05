@@ -3,73 +3,74 @@
     <h2
       class="font-heading mb-4 text-4xl md:text-5xl text-black font-black tracking-tight"
     >
-      Welcome Back
+      Welcome to Fleet
     </h2>
-    <p class="text-gray-500 font-bold">
-      Lorem ipsum dolor sit amet, to the con adipiscing. Volutpat tempor to the
-      condim entum.
-    </p>
+    <p class="text-gray-500 font-bold">Login to manage your fleet.</p>
   </div>
-  <form>
+  <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
     <div class="flex flex-wrap -m-3">
       <div class="w-full p-3">
-        <label
-          class="block mb-2 text-sm text-gray-500 font-bold"
-          for="signInLightReverseInput3-1"
-          >Email Address</label
-        >
-        <input
-          class="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-          id="signInLightReverseInput3-1"
+        <InputText
+          formControlName="email"
+          name="authEmail"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Email Address"
+          icon=""
+          id="logInEmailInputText"
           type="email"
-          placeholder="Enter email address"
+          placeHolder="Enter Your Email Address"
+          ngDefaultControl
+          [error]="loginFormControl['email'].status !== 'VALID' && submitted"
+          errorMessage="The Email field is invalid. Please try again"
         />
+
+        <!-- <div *ngIf="loginFormControl['email'].status !== 'VALID' && submitted">
+          Name is required.
+        </div> -->
       </div>
       <div class="w-full p-3">
-        <label
-          class="block mb-2 text-sm text-gray-500 font-bold"
-          for="signInLightReverseInput3-2"
-          >Password</label
-        >
-        <div
-          class="border border-gray-200 overflow-hidden rounded-full focus-within:ring-4 focus-within:ring-blue-200"
-        >
-          <div class="flex flex-wrap">
-            <div class="flex-1">
-              <input
-                class="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none"
-                id="signInLightReverseInput3-2"
-                type="password"
-                placeholder="*************"
-              />
-            </div>
-            <div class="w-auto">
-              <a
-                class="flex items-center pr-4 text-blue-500 hover:text-blue-600 h-full bg-gray-100 font-bold"
-                href="#"
-                >Forgot password?</a
-              >
-            </div>
-          </div>
-        </div>
+        <InputText
+          formControlName="password"
+          name="authPassword"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Password"
+          icon=""
+          id="logInPasswordInputText"
+          type="password"
+          placeHolder="Enter your password"
+          ngDefaultControl
+          [error]="loginFormControl['password'].status !== 'VALID' && submitted"
+          errorMessage="The Password field is invalid. Please try again"
+        />
       </div>
+
       <div class="w-full p-3">
         <div class="flex flex-wrap md:justify-end -m-2">
           <div class="w-full p-2">
-            <a
+            <button
+              type="submit"
               class="block px-8 py-3.5 text-lg text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full"
               href="#"
-              >Sign In</a
             >
+              Sign In
+            </button>
           </div>
         </div>
       </div>
       <div class="w-full p-3">
-        <p class="text-gray-600 text-center font-bold">
-          <span>Don’t have an account? </span
-          ><a class="text-blue-500 hover:text-blue-600 font-bold" href="#"
-            >Create free account</a
-          >
+        <p class="text-gray-600 font-bold">
+          <span>Don’t have an account? </span>
+          <a class="text-blue-500 hover:text-blue-600 font-bold" href="#">
+            Create an Account
+          </a>
+        </p>
+        <p class="text-gray-600 font-bold">
+          <span>Can't remember password? </span>
+          <a class="text-blue-500 hover:text-blue-600 font-bold" href="#">
+            Forgot password
+          </a>
         </p>
       </div>
     </div>

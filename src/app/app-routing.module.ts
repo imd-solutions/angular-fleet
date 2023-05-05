@@ -3,6 +3,9 @@ import { RouterModule, Routes } from '@angular/router'
 //Layout
 import { ApplicationComponent } from './layout/application/application.component'
 import { AuthComponent } from './layout/auth/auth.component'
+// Guards
+import { LoggedInGuard } from './middleware/LoggedIn/logged-in.guard'
+import { NotLoggedInGuard } from './middleware/NotLoggedIn/not-logged-in.guard'
 // Auth Pages
 import { LoginComponent } from './pages/auth/login/login.component'
 import { RegisterComponent } from './pages/auth/register/register.component'
@@ -15,20 +18,25 @@ const routes: Routes = [
   //Site routes goes here
   {
     path: '',
-    component: ApplicationComponent,
-    children: [
-      { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
-    ],
+    redirectTo: '/auth/login',
+    pathMatch: 'full',
   },
-
-  // App routes goes here here
+  // Auth routes goes here here
   {
     path: 'auth',
     component: AuthComponent,
+    canActivate: [NotLoggedInGuard],
     children: [
-      { path: 'login', component: LoginComponent },
+      { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
     ],
+  },
+  // Application routes goes here here
+  {
+    path: 'application',
+    component: ApplicationComponent,
+    canActivate: [LoggedInGuard],
+    children: [{ path: 'dashboard', component: DashboardComponent }],
   },
   // otherwise redirect to home
   { path: '**', component: NotFoundComponent },
