@@ -3,108 +3,183 @@
     <h2
       class="font-heading mb-4 text-4xl md:text-5xl text-black font-black tracking-tight"
     >
-      Join for free
+      Register with Fleet
     </h2>
     <p class="text-gray-500 font-bold">
-      Lorem ipsum dolor sit amet, to the con adipiscing. Volutpat tempor to the
-      condim entum.
+      Please register your account with us by completing the below form.
     </p>
   </div>
-  <form>
+  <form [formGroup]="registerForm" (ngSubmit)="onFormSubmit()">
     <div class="flex flex-wrap -m-3">
       <div class="w-full p-3">
-        <label
-          class="block mb-2 text-sm text-gray-500 font-bold"
-          for="signUpLightReverseInput3-1"
-          >Full Name</label
-        >
-        <input
-          class="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-          id="signUpLightReverseInput3-1"
-          type="text"
-          placeholder="First and last name"
-        />
-      </div>
-      <div class="w-full p-3">
-        <label
-          class="block mb-2 text-sm text-gray-500 font-bold"
-          for="signUpLightReverseInput3-2"
-          >Email Address</label
-        >
-        <input
-          class="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-          id="signUpLightReverseInput3-2"
+        <InputText
+          formControlName="firstname"
+          name="registerFirstName"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Email Address"
+          icon=""
+          id="logInEmailInputText"
           type="email"
-          placeholder="Enter email address"
+          placeHolder="Enter your Email Address"
+          ngDefaultControl
+          labelText="Firstname"
+          icon=""
+          id="registerFirstnameInputText"
+          type="text"
+          placeHolder="Your first name"
+          ngDefaultControl
+          [error]="
+            registerFormControl['firstname'].status !== 'VALID' && submitted
+          "
+          errorMessage="The firstname field is invalid. Please try again"
         />
       </div>
       <div class="w-full p-3">
-        <label
-          class="block mb-2 text-sm text-gray-500 font-bold"
-          for="signUpLightReverseInput3-3"
-          >Password</label
-        >
-        <input
-          class="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
-          id="signUpLightReverseInput3-3"
-          type="password"
-          placeholder="***************"
+        <InputText
+          formControlName="lastname"
+          name="registerLastName"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Email Address"
+          icon=""
+          id="logInEmailInputText"
+          type="email"
+          placeHolder="Enter your Email Address"
+          ngDefaultControl
+          labelText="Lastname"
+          icon=""
+          id="registerLastnameInputText"
+          type="text"
+          placeHolder="Your last name"
+          ngDefaultControl
+          [error]="
+            registerFormControl['lastname'].status !== 'VALID' && submitted
+          "
+          errorMessage="The lastname field is invalid. Please try again"
+        />
+      </div>
+      <div class="w-full p-3">
+        <InputText
+          formControlName="email"
+          name="registerEmailAddress"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Email Address"
+          icon=""
+          id="registerEmailInputText"
+          type="email"
+          placeHolder="Your company email address"
+          ngDefaultControl
+          [error]="registerFormControl['email'].status !== 'VALID' && submitted"
+          errorMessage="The email field is invalid. Please try again"
+        />
+      </div>
+      <div class="w-full p-3">
+        <InputText
+          formControlName="company"
+          name="registerCompany"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Company Name"
+          icon=""
+          id="registerCompanyInputText"
+          type="text"
+          placeHolder="Your company name"
+          ngDefaultControl
+          [error]="
+            registerFormControl['company'].status !== 'VALID' && submitted
+          "
+          errorMessage="The company name field is invalid. Please try again"
+        />
+      </div>
+      <div class="w-full p-3">
+        <InputText
+          formControlName="telephone"
+          name="registerTelephone"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Telephone Number"
+          icon=""
+          id="registerTelephoneInputText"
+          type="text"
+          placeHolder="Your company telephone number"
+          ngDefaultControl
+          [error]="
+            registerFormControl['telephone'].status !== 'VALID' && submitted
+          "
+          errorMessage="The telephone field is invalid. Please try again"
+        />
+      </div>
+      <div class="w-full p-3">
+        <InputText
+          formControlName="fleet"
+          name="registerFleet"
+          cssLabelClass="block mb-2 text-sm text-gray-500 font-bold"
+          cssInputClass="appearance-none px-6 py-3.5 w-full text-lg text-gray-500 font-bold bg-gray-100 placeholder-gray-500 outline-none border border-gray-200 focus:ring-4 focus:ring-blue-200 rounded-full"
+          labelText="Fleet Size"
+          icon=""
+          id="registerFleetInputText"
+          type="text"
+          placeHolder="Your company fleet size"
+          ngDefaultControl
+          [error]="registerFormControl['fleet'].status !== 'VALID' && submitted"
+          errorMessage="The fleet size field is invalid. Please try again"
         />
       </div>
       <div class="w-full p-3">
         <div class="flex flex-wrap items-center justify-between -m-3">
           <div class="w-auto p-3">
             <div class="flex items-center">
-              <input
-                class="opacity-0 absolute h-6 w-6"
-                id="signUpLightReverseCheckbox3-1"
-                type="checkbox"
+              <InputCheckbox
+                formControlName="terms"
+                name="registerTerms"
+                class="absolute h-6 w-6 focus:ring-blue-500 dark:focus:ring-blue-600 checkboxstyle"
+                id="registerTermsConditionCheckbox"
+                ngDefaultControl
+                [error]="
+                  registerFormControl['terms'].status !== 'VALID' && submitted
+                "
               />
-              <div
-                class="flex flex-shrink-0 justify-center items-center w-6 h-6 mr-4 text-transparent bg-white border border-gray-200 border-neutral-200 rounded-md"
-              >
-                <svg
-                  width="9"
-                  height="7"
-                  viewBox="0 0 9 7"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M0.603516 3.77075L2.68685 5.85409L7.89518 0.645752"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  ></path>
-                </svg>
-              </div>
               <label
-                class="text-gray-500 font-bold"
+                class="text-gray-500 font-bold ml-8"
                 for="signUpLightReverseCheckbox3-1"
-                ><span>By signing up, I agree to the </span
-                ><a class="text-blue-500 hover:text-blue-600" href="#"
-                  >Terms &amp; Conditions</a
-                ></label
               >
+                <span>By signing up, I agree to the </span>
+                <a class="text-blue-500 hover:text-blue-600" href="#">
+                  Terms &amp; Conditions
+                </a>
+              </label>
             </div>
+            <p
+              *ngIf="
+                registerFormControl['terms'].status !== 'VALID' && submitted
+              "
+              class="text-sm text-red-500 font-medium"
+            >
+              Please confirm that you have read the terms and conditions.
+            </p>
           </div>
         </div>
       </div>
       <div class="w-full p-3">
         <div class="flex flex-wrap md:justify-end -m-2">
           <div class="w-full p-2">
-            <a
+            <button
+              type="submit"
               class="block px-8 py-3.5 text-lg text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full"
-              href="#"
-              >Sign Up</a
             >
+              Sign Up
+            </button>
           </div>
         </div>
       </div>
       <div class="w-full p-3">
         <p class="text-gray-500 text-center font-bold">
           <span>Already have an account? </span
-          ><a class="text-blue-500 hover:text-blue-600 font-bold" href="#"
+          ><a
+            class="text-blue-500 hover:text-blue-600 font-bold"
+            href="/auth/login"
             >Sign In</a
           >
         </p>

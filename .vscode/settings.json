@@ -1,7 +1,11 @@
 {
   "scss.lint.unknownProperties": "ignore",
   "scss.lint.unknownAtRules": "ignore",
-  "cSpell.words": ["Parens", "tailwindcss"],
+  "cSpell.words": [
+    "checkboxstyle",
+    "Parens",
+    "tailwindcss"
+  ],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   }

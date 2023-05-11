@@ -1,1 +1,10 @@
-<p>checkbox works!</p>
+<input
+  required
+  [name]="name"
+  [class]="cssClass"
+  [ngClass]="{ 'border border-red-500': error === true }"
+  [id]="id"
+  type="checkbox"
+  [(ngModel)]="filter"
+  (ngModelChange)="inputCheckboxValue($event)"
+/>

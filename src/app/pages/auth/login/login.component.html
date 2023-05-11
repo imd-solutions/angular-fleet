@@ -24,10 +24,6 @@
           [error]="loginFormControl['email'].status !== 'VALID' && submitted"
           errorMessage="The Email field is invalid. Please try again"
         />
-
-        <!-- <div *ngIf="loginFormControl['email'].status !== 'VALID' && submitted">
-          Name is required.
-        </div> -->
       </div>
       <div class="w-full p-3">
         <InputText
@@ -52,7 +48,6 @@
             <button
               type="submit"
               class="block px-8 py-3.5 text-lg text-center text-white font-bold bg-blue-500 hover:bg-blue-600 focus:ring-4 focus:ring-blue-200 rounded-full"
-              href="#"
             >
               Sign In
             </button>
@@ -62,7 +57,10 @@
       <div class="w-full p-3">
         <p class="text-gray-600 font-bold">
           <span>Don’t have an account? </span>
-          <a class="text-blue-500 hover:text-blue-600 font-bold" href="#">
+          <a
+            class="text-blue-500 hover:text-blue-600 font-bold"
+            href="/auth/register"
+          >
             Create an Account
           </a>
         </p>
