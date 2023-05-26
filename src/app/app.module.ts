@@ -20,6 +20,10 @@ import { ButtonComponent } from './components/events/button/button.component'
 import { TextComponent } from './components/input/text/text.component'
 import { TextareaComponent } from './components/input/textarea/textarea.component'
 import { CheckboxComponent } from './components/input/checkbox/checkbox.component'
+import { ModalComponent } from './components/notifications/modal/modal.component'
+import { ModalService } from './services/modal/modal.service';
+import { FooComponent } from './foo/foo.component';
+import { ForgottenPasswordComponent } from './pages/auth/forgotten-password/forgotten-password.component'
 
 @NgModule({
   declarations: [
@@ -38,6 +42,9 @@ import { CheckboxComponent } from './components/input/checkbox/checkbox.componen
     TextComponent,
     TextareaComponent,
     CheckboxComponent,
+    ModalComponent,
+    FooComponent,
+    ForgottenPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +53,7 @@ import { CheckboxComponent } from './components/input/checkbox/checkbox.componen
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

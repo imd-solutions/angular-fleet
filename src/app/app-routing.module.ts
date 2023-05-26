@@ -9,6 +9,7 @@ import { NotLoggedInGuard } from './middleware/NotLoggedIn/not-logged-in.guard'
 // Auth Pages
 import { LoginComponent } from './pages/auth/login/login.component'
 import { RegisterComponent } from './pages/auth/register/register.component'
+import { ForgottenPasswordComponent } from './pages/auth/forgotten-password/forgotten-password.component'
 // App Pages
 import { DashboardComponent } from './pages/application/dashboard/dashboard.component'
 //Error Pages
@@ -29,6 +30,7 @@ const routes: Routes = [
     children: [
       { path: 'login', component: LoginComponent, pathMatch: 'full' },
       { path: 'register', component: RegisterComponent },
+      { path: 'forgotten-password', component: ForgottenPasswordComponent },
     ],
   },
   // Application routes goes here here
